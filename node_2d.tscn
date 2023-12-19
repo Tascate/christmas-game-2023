@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://World/block.tscn" id="1_bfcj4"]
 [ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/player.tscn" id="2_7vva7"]
-[ext_resource type="PackedScene" uid="uid://b72j8e5tu7q88" path="res://World/anvil.tscn" id="3_7cyl8"]
+[ext_resource type="PackedScene" uid="uid://cljhcrwsggwcb" path="res://World/anvil.tscn" id="3_7cyl8"]
 
 [node name="World" type="Node2D"]
 position = Vector2(32, 112)
@@ -44,8 +44,10 @@ position = Vector2(32, 112)
 
 [node name="Player" parent="." instance=ExtResource("2_7vva7")]
 position = Vector2(24, -16)
-dash_speed = 500.0
-move_speed = 250.0
+move_speed = 20.0
 
-[node name="RigidBody2D" parent="." instance=ExtResource("3_7cyl8")]
+[node name="Anvil" parent="." instance=ExtResource("3_7cyl8")]
 position = Vector2(40, -32)
+
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
