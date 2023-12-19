@@ -12,7 +12,9 @@ extends CharacterBody2D
 var is_dashing : bool = false
 var dash_timer : float
 
-@export var speed : float
+@export var move_speed : float
+
+signal try_to_carry_anvil(player_x, player_y)
 
 func get_dash_direction() -> float:
 	return Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -25,30 +27,34 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += get_gravity() * delta
 
+	#Carry anvil
+	if Input.is_key_pressed(KEY_B):
+		try_to_carry_anvil.emit($Node2D.position.x, $Node2D.position.y)
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
 
-	# dash
-	if Input.is_action_just_pressed("ui_dash") and not is_dashing:
-		is_dashing = true
-		dash_timer = dash_duration
-		velocity.x += get_dash_direction() * dash_speed
-
-	if is_dashing:
-		dash_timer -= delta
-		if dash_timer <= 0.0:
-			is_dashing = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = direction * move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
 	if is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, 0.5 * delta)  # Adjust the second parameter for smoother deceleration
 
+	# dash
+	if Input.is_action_just_pressed("ui_dash") and not is_dashing:
+		is_dashing = true
+		dash_timer = dash_duration
+		
+	if is_dashing:
+		print("Dashing")
+		velocity.x += get_dash_direction() * dash_speed
+		dash_timer -= delta
+		if dash_timer <= 0.0:
+			is_dashing = false
 
 	move_and_slide()

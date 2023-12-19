@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vkp35iucjy55"]
+[gd_scene load_steps=4 format=3 uid="uid://vkp35iucjy55"]
 
 [ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://World/block.tscn" id="1_bfcj4"]
 [ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/player.tscn" id="2_7vva7"]
+[ext_resource type="PackedScene" uid="uid://b72j8e5tu7q88" path="res://World/anvil.tscn" id="3_7cyl8"]
 
 [node name="World" type="Node2D"]
 position = Vector2(32, 112)
@@ -42,6 +43,9 @@ position = Vector2(128, 96)
 position = Vector2(32, 112)
 
 [node name="Player" parent="." instance=ExtResource("2_7vva7")]
-position = Vector2(24, -12)
-dash_speed = 20.0
-dash_duration = 1.0
+position = Vector2(24, -16)
+dash_speed = 500.0
+move_speed = 250.0
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_7cyl8")]
+position = Vector2(40, -32)
