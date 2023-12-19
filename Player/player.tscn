@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dex540qym1ag6"]
+[gd_scene load_steps=6 format=3 uid="uid://dex540qym1ag6"]
 
+[ext_resource type="Script" path="res://Player/player.gd" id="1_12pg1"]
 [ext_resource type="Texture2D" uid="uid://b1qrbr4x0vkto" path="res://tilemap-characters_packed.png" id="1_vd07v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meo57"]
@@ -22,6 +23,7 @@ size = Vector2(14, 16)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+script = ExtResource("1_12pg1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x2o5f")
