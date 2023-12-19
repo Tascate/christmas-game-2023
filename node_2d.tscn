@@ -1,8 +1,48 @@
-[gd_scene format=3 uid="uid://vkp35iucjy55"]
+[gd_scene load_steps=3 format=3 uid="uid://vkp35iucjy55"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://World/block.tscn" id="1_bfcj4"]
+[ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/player.tscn" id="2_7vva7"]
+
+[node name="World" type="Node2D"]
+position = Vector2(32, 112)
 
 [node name="HELLO" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "yo yo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Block" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(64, 0)
+
+[node name="Block2" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(80, -16)
+
+[node name="Block3" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(48, 0)
+
+[node name="Block4" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(32, 0)
+
+[node name="Block5" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(16, 0)
+
+[node name="Block6" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(128, -32)
+
+[node name="Block7" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(112, -32)
+
+[node name="Block8" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(64, -16)
+
+[node name="Block9" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(112, -16)
+
+[node name="Block10" parent="." instance=ExtResource("1_bfcj4")]
+position = Vector2(96, -16)
+
+[node name="Block11" parent="." instance=ExtResource("1_bfcj4")]
+
+[node name="Player" parent="." instance=ExtResource("2_7vva7")]
+position = Vector2(24, -12)
