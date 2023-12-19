@@ -49,5 +49,5 @@ move_speed = 20.0
 [node name="Anvil" parent="." instance=ExtResource("3_7cyl8")]
 position = Vector2(40, -32)
 
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
 [connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
