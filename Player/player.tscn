@@ -24,6 +24,10 @@ size = Vector2(14, 16)
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_12pg1")
+jump_height = 45.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.25
+speed = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x2o5f")
