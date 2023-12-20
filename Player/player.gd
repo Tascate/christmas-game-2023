@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var dash_duration : float
 @export var wavedash_speed : float
 @export var wavedash_duration : float
+@export var wavedash_friction : float
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -49,27 +50,41 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, 0.5 * delta)  # Adjust the second parameter for smoother deceleration
 
-	# dash
-	if Input.is_action_just_pressed("ui_dash") and not is_dashing:
-		is_dashing = true
-		dash_timer = dash_duration
-		
-	if is_dashing:
-		print("Dashing")
-		velocity.x += get_dash_direction() * dash_speed
-		dash_timer -= delta
-		if dash_timer <= 0.0:
-			is_dashing = false
-
-	# Wavedash
+    # Wavedash
 	if Input.is_action_just_pressed("ui_dash") and not is_dashing and is_on_floor():
+		print("WAVEDASHING !!!!!!!!!!!!!!!!!!")
 		is_wavedashing = true
 		wavedash_timer = wavedash_duration
-		velocity.x = get_dash_direction() * wavedash_speed
+		# Reset velocity before wavedash
+		velocity.x = 0.0
 	
 	if is_wavedashing:
+		print("Wavedashing...")
+		# Gradually apply wavedash speed over wavedash duration
+		velocity.x = lerp(velocity.x, get_dash_direction() * wavedash_speed, delta / wavedash_duration)
 		wavedash_timer -= delta
 		if wavedash_timer <= 0.0:
 			is_wavedashing = false
+			# Reset velocity after wavedash completes
+			velocity.x = 0.0
+
+	# dash
+	if Input.is_action_just_pressed("ui_dash") and not is_dashing and not is_on_floor():
+		print("DASHING !!!!!!!!!!!!!!!!!!!!!")
+		is_dashing = true
+		dash_timer = dash_duration
+		# Reset velocity before dashing
+		velocity.x = 0.0
+		
+	if is_dashing:
+		print("Dashing...")
+		# Gradually apply dash speed over dash duration
+		velocity.x = lerp(velocity.x, get_dash_direction() * dash_speed, delta / dash_duration)
+		dash_timer -= delta
+		if dash_timer <= 0.0:
+			is_dashing = false
+			# Reset velocity after dash completes
+			velocity.x = 0.0
+
 
 	move_and_slide()

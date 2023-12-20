@@ -31,6 +31,7 @@ dash_speed = 10000.0
 dash_duration = 10.0
 wavedash_speed = null
 wavedash_duration = null
+wavedash_friction = null
 move_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
