@@ -5,12 +5,16 @@ extends CharacterBody2D
 @export var jump_time_to_descent : float
 @export var dash_speed : float
 @export var dash_duration : float
+@export var wavedash_speed : float
+@export var wavedash_duration : float
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 var is_dashing : bool = false
 var dash_timer : float
+var is_wavedashing : bool = false
+var wavedash_timer : float
 
 @export var move_speed : float
 
@@ -56,5 +60,16 @@ func _physics_process(delta):
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
+
+	# Wavedash
+	if Input.is_action_just_pressed("ui_dash") and not is_dashing and is_on_floor():
+		is_wavedashing = true
+		wavedash_timer = wavedash_duration
+		velocity.x = get_dash_direction() * wavedash_speed
+	
+	if is_wavedashing:
+		wavedash_timer -= delta
+		if wavedash_timer <= 0.0:
+			is_wavedashing = false
 
 	move_and_slide()

@@ -29,6 +29,8 @@ jump_time_to_peak = 0.3
 jump_time_to_descent = 0.25
 dash_speed = 10000.0
 dash_duration = 10.0
+wavedash_speed = null
+wavedash_duration = null
 move_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
