@@ -145,5 +145,4 @@ position = Vector2(-24, 16)
 [node name="Anvil" parent="." instance=ExtResource("5_y6doy")]
 position = Vector2(40, -32)
 
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
 [connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
