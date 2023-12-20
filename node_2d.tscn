@@ -128,11 +128,12 @@ position = Vector2(352, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_7vva7")]
 position = Vector2(24, -16)
-dash_speed = 700.0
-dash_duration = 0.05
-wavedash_speed = 700.0
-wavedash_duration = 0.05
-move_speed = 50.0
+dash_speed = 3000.0
+dash_duration = 0.1
+wavedash_speed = 7000.0
+wavedash_duration = 0.2
+wavedash_friction = 1000.0
+move_speed = 70.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-24, 16)
@@ -144,5 +145,5 @@ position_smoothing_speed = 30.0
 [node name="Anvil" parent="." instance=ExtResource("3_7cyl8")]
 position = Vector2(40, -32)
 
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
 [connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
