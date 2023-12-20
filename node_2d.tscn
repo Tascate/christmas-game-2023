@@ -44,10 +44,10 @@ position = Vector2(32, 112)
 
 [node name="Player" parent="." instance=ExtResource("2_7vva7")]
 position = Vector2(24, -16)
-move_speed = 20.0
+move_speed = 30.0
 
 [node name="Anvil" parent="." instance=ExtResource("3_7cyl8")]
 position = Vector2(40, -32)
 
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
 [connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]

@@ -31,7 +31,7 @@ func _physics_process(delta):
 	if Input.is_key_pressed(KEY_B):
 		try_to_carry_anvil.emit(global_position)
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
 
