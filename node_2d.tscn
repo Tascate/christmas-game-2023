@@ -133,7 +133,7 @@ dash_duration = 0.1
 wavedash_speed = 7000.0
 wavedash_duration = 0.2
 wavedash_friction = 1000.0
-move_speed = 70.0
+move_speed = 160.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-24, 16)
