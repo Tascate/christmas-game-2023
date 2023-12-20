@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c70mgborpc8x0"]
+
+[ext_resource type="Script" path="res://World_Gen/World_generator.gd" id="1_i7ofe"]
+[ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://Block/block.tscn" id="2_r5xja"]
+
+[node name="World_generator" type="Marker2D"]
+script = ExtResource("1_i7ofe")
+block = ExtResource("2_r5xja")
+max_world_distance = 500
+grid_size = 16

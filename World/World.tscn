@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://vkp35iucjy55"]
+
+[ext_resource type="Script" path="res://World/World.gd" id="1_vey01"]
+[ext_resource type="PackedScene" uid="uid://c70mgborpc8x0" path="res://World_Gen/world_generator.tscn" id="2_w1rtm"]
+[ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://Block/block.tscn" id="3_1btgp"]
+[ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/player.tscn" id="4_7ap5l"]
+[ext_resource type="PackedScene" uid="uid://cljhcrwsggwcb" path="res://Anvil/anvil.tscn" id="5_y6doy"]
+
+[node name="World" type="Node2D"]
+position = Vector2(32, 112)
+script = ExtResource("1_vey01")
+
+[node name="World_generator" parent="." instance=ExtResource("2_w1rtm")]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Block" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(96, 112)
+
+[node name="Block2" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(112, 96)
+
+[node name="Block3" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(80, 112)
+
+[node name="Block4" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(64, 112)
+
+[node name="Block5" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(48, 112)
+
+[node name="Block6" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(160, 80)
+
+[node name="Block7" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(144, 80)
+
+[node name="Block8" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(96, 96)
+
+[node name="Block9" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(144, 96)
+
+[node name="Block10" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(128, 96)
+
+[node name="Block11" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(32, 112)
+
+[node name="Block12" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(240, 80)
+
+[node name="Block13" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(256, 64)
+
+[node name="Block14" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(224, 80)
+
+[node name="Block15" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(208, 80)
+
+[node name="Block16" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(192, 80)
+
+[node name="Block17" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(304, 48)
+
+[node name="Block18" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(288, 48)
+
+[node name="Block19" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(240, 64)
+
+[node name="Block20" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(288, 64)
+
+[node name="Block21" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(272, 64)
+
+[node name="Block22" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(176, 80)
+
+[node name="Block23" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(336, 48)
+
+[node name="Block24" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(320, 48)
+
+[node name="Block25" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(432, 48)
+
+[node name="Block26" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(464, 48)
+
+[node name="Block27" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(448, 48)
+
+[node name="Block28" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(304, 48)
+
+[node name="Block29" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(416, 48)
+
+[node name="Block30" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(496, 48)
+
+[node name="Block31" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(400, 48)
+
+[node name="Block32" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(384, 48)
+
+[node name="Block33" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(368, 48)
+
+[node name="Block34" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(544, 32)
+
+[node name="Block35" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(528, 32)
+
+[node name="Block36" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(480, 48)
+
+[node name="Block37" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(528, 48)
+
+[node name="Block38" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(512, 48)
+
+[node name="Block39" parent="Platforms" instance=ExtResource("3_1btgp")]
+position = Vector2(352, 48)
+
+[node name="Player" parent="." instance=ExtResource("4_7ap5l")]
+position = Vector2(24, -16)
+dash_speed = 700.0
+dash_duration = 0.05
+wavedash_speed = 700.0
+wavedash_duration = 0.05
+move_speed = 30.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-24, 16)
+
+[node name="Anvil" parent="." instance=ExtResource("5_y6doy")]
+position = Vector2(40, -32)
+
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_anvil_pickup"]
+[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
