@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cljhcrwsggwcb"]
 
-[ext_resource type="Script" path="res://World/anvil.gd" id="1_rthpf"]
+[ext_resource type="Script" path="res://Anvil/anvil.gd" id="1_rthpf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8pjg"]
 size = Vector2(16, 16)
