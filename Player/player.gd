@@ -50,7 +50,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, 0.5 * delta)  # Adjust the second parameter for smoother deceleration
 
-    # Wavedash
+	# Wavedash
 	if Input.is_action_just_pressed("ui_dash") and not is_dashing and is_on_floor():
 		print("WAVEDASHING !!!!!!!!!!!!!!!!!!")
 		is_wavedashing = true
