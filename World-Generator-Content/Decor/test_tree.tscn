@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://pb65b4wrgv1"]
+
+[ext_resource type="TileSet" uid="uid://bxvjfddggvvxy" path="res://World-Generator-Content/test_tiles.tres" id="1_c8iq5"]
+[ext_resource type="Script" path="res://World-Generator-Content/Decor/test_tree.gd" id="2_ogrcl"]
+
+[node name="Tree" type="TileMap"]
+tile_set = ExtResource("1_c8iq5")
+rendering_quadrant_size = 18
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 1048578, 6, -131072, 1048578, 6, -196608, 1048578, 6, -262144, 1179650, 2, -327680, 1179650, 1, -262145, 1114114, 1, -327681, 1114114, 0, -393216, 1179650, 0, -393215, 1245186, 0, -327679, 1245186, 1, -262143, 1245186, 2, -196609, 1114114, 2)
+script = ExtResource("2_ogrcl")
