@@ -29,8 +29,8 @@ func get_gravity() -> float:
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += get_gravity() * delta
+	#if not is_on_floor():
+		#velocity.y += get_gravity() * delta
 
 	#Carry anvil
 	if Input.is_key_pressed(KEY_B):

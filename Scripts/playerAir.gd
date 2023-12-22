@@ -21,6 +21,9 @@ func Physics_Update(delta: float):
 		Transitioned.emit(self, "playerGrounded")
 	else:
 		
+		#gravity
+		player.velocity.y += player.get_gravity() * delta
+		
 		# movement
 		var direction = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		if direction:
@@ -38,7 +41,7 @@ func Physics_Update(delta: float):
 			player.velocity.x = 0.0
 	
 		if is_dashing:
-			print("Wavedashing...")
+			print("dashing...")
 			# Gradually apply dash speed over dash duration
 			player.velocity.x = lerp(player.velocity.x, player.get_dash_direction() * player.dash_speed, delta / player.dash_duration)
 			player.dash_timer -= delta
