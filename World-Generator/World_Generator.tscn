@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://World-Generator/World_Generator.gd" id="1_eouo0"]
 [ext_resource type="PackedScene" uid="uid://boju1ehd3ohau" path="res://Block/Block.tscn" id="2_nhpnw"]
-[ext_resource type="PackedScene" uid="uid://c65d83osw5ukg" path="res://World-Generator-Content/Levels/test_covering.tscn" id="3_64670"]
+[ext_resource type="PackedScene" uid="uid://c6yv5l2y864fl" path="res://World-Generator-Content/Interactables/test_interacble.tscn" id="3_fepgg"]
 
 [node name="WorldGenerator" type="Marker2D"]
 script = ExtResource("1_eouo0")
 block = ExtResource("2_nhpnw")
-object = ExtResource("3_64670")
+object = Array[PackedScene]([ExtResource("3_fepgg")])

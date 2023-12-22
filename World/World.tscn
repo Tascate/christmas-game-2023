@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vkp35iucjy55"]
+[gd_scene load_steps=5 format=3 uid="uid://vkp35iucjy55"]
 
 [ext_resource type="Script" path="res://World/World.gd" id="1_igx5a"]
 [ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/Player.tscn" id="2_7vva7"]
 [ext_resource type="PackedScene" uid="uid://baxjxa64i0hvw" path="res://World-Generator/World_Generator.tscn" id="2_ph6he"]
-[ext_resource type="PackedScene" uid="uid://c6yv5l2y864fl" path="res://World-Generator-Content/Interactables/test_interacble.tscn" id="3_5s2ur"]
 [ext_resource type="PackedScene" uid="uid://cljhcrwsggwcb" path="res://Anvil/Anvil.tscn" id="3_7cyl8"]
 
 [node name="World" type="Node2D"]
@@ -11,7 +10,6 @@ position = Vector2(32, 112)
 script = ExtResource("1_igx5a")
 
 [node name="WorldGenerator" parent="." instance=ExtResource("2_ph6he")]
-object = ExtResource("3_5s2ur")
 max_world_distance = 500
 grid_size = 16
 
