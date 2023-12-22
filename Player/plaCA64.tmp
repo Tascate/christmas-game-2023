@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dex540qym1ag6"]
+[gd_scene load_steps=8 format=3 uid="uid://dex540qym1ag6"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_12pg1"]
 [ext_resource type="Texture2D" uid="uid://b1qrbr4x0vkto" path="res://tilemap-characters_packed.png" id="1_vd07v"]
 [ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="3_yaq5n"]
 [ext_resource type="Script" path="res://Scripts/PlayerGrounded.gd" id="4_o2n3f"]
-[ext_resource type="Script" path="res://Scripts/playerAir.gd" id="5_j75k3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meo57"]
 atlas = ExtResource("1_vd07v")
@@ -43,14 +42,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0fw1s")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_yaq5n")
-initial_state = NodePath("playerGrounded")
 
 [node name="playerGrounded" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("4_o2n3f")
-player = NodePath("../..")
-
-[node name="playerAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("5_j75k3")
 player = NodePath("../..")

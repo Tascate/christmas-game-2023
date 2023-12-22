@@ -135,7 +135,7 @@ position = Vector2(512, 48)
 position = Vector2(352, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_7vva7")]
-position = Vector2(76, -85)
+position = Vector2(73, -28)
 dash_speed = 3000.0
 dash_duration = 0.1
 wavedash_speed = 7000.0
