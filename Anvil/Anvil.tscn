@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cljhcrwsggwcb"]
+[gd_scene load_steps=9 format=3 uid="uid://cljhcrwsggwcb"]
 
 [ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="1_jepds"]
 [ext_resource type="Script" path="res://Anvil/Anvil.gd" id="1_rthpf"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8pjg"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avpny"]
+size = Vector2(16, 1)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mb0mr"]
 width = 10
@@ -25,6 +28,16 @@ throw_drag = 4.0
 
 [node name="World_Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h8pjg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.55651e-07, -7.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_avpny")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
