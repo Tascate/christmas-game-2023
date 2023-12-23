@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var jump_height : float
 @export var jump_time_to_peak : float
