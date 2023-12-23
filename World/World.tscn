@@ -36,5 +36,3 @@ position_smoothing_speed = 30.0
 z_index = 1
 position = Vector2(40, -32)
 slide_on_ceiling = false
-
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]
