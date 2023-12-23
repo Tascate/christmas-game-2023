@@ -40,5 +40,3 @@ slide_on_ceiling = false
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_ek6hq")]
 position = Vector2(327, 33)
-
-[connection signal="try_to_carry_anvil" from="Player" to="Anvil" method="_on_player_try_to_carry_anvil"]

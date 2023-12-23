@@ -19,7 +19,7 @@ var wavedash_timer : float
 
 @export var move_speed : float
 
-signal try_to_carry_anvil(position)
+signal player_grab_anvil(position)
 
 func get_dash_direction() -> float:
 	return Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -33,8 +33,8 @@ func _physics_process(delta):
 		#velocity.y += get_gravity() * delta
 
 	#Carry anvil
-	if Input.is_key_pressed(KEY_B):
-		try_to_carry_anvil.emit(global_position)
+	if Input.is_key_pressed(KEY_Z):
+		player_grab_anvil.emit(global_position)
 	## Handle jump.
 	#if Input.is_action_just_pressed("jump") and is_on_floor():
 		#velocity.y = jump_velocity
