@@ -5,6 +5,8 @@ class_name playerGrounded
 	#dash, jump, crouch (?)
 
 @export var player: CharacterBody2D
+@export var anim: AnimatedSprite2D
+
 var is_dashing : bool
 
 var move_direction : Vector2
@@ -22,8 +24,14 @@ func Physics_Update(delta: float):
 		# movement
 		var direction = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		if direction:
+			if direction < 0:
+				anim.flip_h = false
+			else:
+				anim.flip_h = true
+			anim.play("Run")
 			player.velocity.x = player.get_dash_direction() * player.move_speed
 		else:
+			anim.play("Idle")
 			player.velocity.x = move_toward(player.velocity.x, 0, player.move_speed)
 		player.velocity.x = lerp(player.velocity.x, 0.0, 0.5 * delta)  # Adjust the second parameter for smoother deceleration
 		
