@@ -8,6 +8,7 @@ func Enter():
 
 func Exit():
 	#TODO Apply forces to nearby Rigidbodies
+	#TODO Activates nearby interactables
 	anvil.velocity.x = 0
 	pass
 

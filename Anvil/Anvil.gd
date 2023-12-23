@@ -11,13 +11,22 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var grabbed = false
+var rng
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	rng = RandomNumberGenerator.new()
 
 func get_gravity() -> float:
 	return throw_gravity if velocity.y < 0.0 else gravity
 
 func _physics_process(delta):
-	move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision and collision.get_collider() is RigidBody2D:
+		var object = collision.get_collider()
+		print("go away")
+		object.apply_central_impulse(collision.get_normal() * -1 * 200)
+		object.apply_torque_impulse(20000)
+		object.set_collision_layer_value(3, false)
+		object.set_collision_mask_value(3, false)
+		velocity += collision.get_travel() - collision.get_remainder()
