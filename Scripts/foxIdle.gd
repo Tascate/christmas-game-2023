@@ -1,5 +1,5 @@
 extends State
-class_name npcIdle
+class_name foxIdle
 
 @export var npc: CharacterBody2D
 @export var move_speed := 25.0
