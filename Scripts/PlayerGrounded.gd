@@ -41,14 +41,14 @@ func Physics_Update(delta: float):
 			
 		# wavedash
 		if Input.is_action_just_pressed("ui_dash") and not is_dashing:
-			print("WAVEDASHING !!!!!!!!!!!!!!!!!!")
+			#print("WAVEDASHING !!!!!!!!!!!!!!!!!!")
 			is_dashing = true
 			player.wavedash_timer = player.wavedash_duration
 			# Reset velocity before wavedash
 			player.velocity.x = 0.0
 	
 		if is_dashing:
-			print("Wavedashing...")
+			#print("Wavedashing...")
 			# Gradually apply wavedash speed over wavedash duration
 			player.velocity.x = lerp(player.velocity.x, player.get_dash_direction() * player.wavedash_speed, delta / player.wavedash_duration)
 			player.wavedash_timer -= delta

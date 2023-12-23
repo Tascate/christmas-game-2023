@@ -30,13 +30,11 @@ throw_drag = 4.0
 shape = SubResource("RectangleShape2D_h8pjg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(6.55651e-07, -7.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_avpny")
 one_way_collision = true
 
@@ -46,7 +44,7 @@ texture = SubResource("NoiseTexture2D_mb0mr")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_jepds")
-initial_state = NodePath("AnvilAir")
+initial_state = NodePath("AnvilGrounded")
 
 [node name="AnvilGrounded" type="Node" parent="StateMachine" node_paths=PackedStringArray("anvil")]
 script = ExtResource("2_u0t35")

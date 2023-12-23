@@ -1,12 +1,8 @@
-extends AnimatableBody2D
+extends StaticBody2D
 class_name Interactable
 
-signal activated
-signal deactivated
-
+signal toggled
 #signals a connected object about its activation status
-func activate():
-	activated.emit()
-	
-func deactivate():
-	deactivated.emit()
+func toggle():
+	toggled.emit()
+

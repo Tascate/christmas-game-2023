@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://c58jqsgservc5"]
+
+[ext_resource type="Script" path="res://World-Generator-Content/Levels/sample_level.gd" id="1_pjnqg"]
+[ext_resource type="TileSet" uid="uid://bxvjfddggvvxy" path="res://World-Generator-Content/test_tiles.tres" id="2_u14cr"]
+[ext_resource type="PackedScene" uid="uid://cgnfqdp6ohqtl" path="res://World-Generator-Content/Interactables/MovingPlatform.tscn" id="3_of2cm"]
+[ext_resource type="PackedScene" uid="uid://cc2cdi1xjj1a5" path="res://World-Generator-Content/Interactables/Pickup.tscn" id="4_3djko"]
+[ext_resource type="PackedScene" uid="uid://b13mw1kgne87q" path="res://World-Generator-Content/Interactables/Switch.tscn" id="5_fnn5i"]
+
+[sub_resource type="Curve2D" id="Curve2D_v74re"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 8, 0, 0, 0, 0, -97, 8)
+}
+point_count = 2
+
+[node name="Sample Level" type="Node2D"]
+script = ExtResource("1_pjnqg")
+
+[node name="Switch" parent="." instance=ExtResource("5_fnn5i")]
+position = Vector2(259, -14)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_u14cr")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 655362, 6, -131071, 655362, 5, -65536, 786434, 1, -131072, 786434, 1, -196608, 786434, 1, -262144, 786434, 1, -327680, 786434, 1, -393216, 786434, 1, -458752, 786434, 1, -524288, 786434, 1, -589824, 786434, 1, -655360, 786434, 1, -720896, 786434, 1, -655341, 786434, 1, -589805, 786434, 1, -524269, 786434, 1, -458733, 786434, 1, -393197, 786434, 1, -327661, 786434, 1, -262125, 786434, 1, -196589, 786434, 1, -131053, 786434, 1, -65517, 786434, 1, -786432, 786434, 1, -851968, 786434, 1, -917504, 786434, 1, -983040, 983042, 0, -983039, 983042, 0, -983038, 983042, 0, -983037, 983042, 0, -983036, 983042, 0, -983035, 983042, 0, -983034, 983042, 0, -983033, 983042, 0, -983032, 983042, 0, -983031, 983042, 0, -983030, 983042, 0, -983029, 983042, 0, -983028, 983042, 0, -983027, 983042, 0, -983026, 983042, 0, -851949, 786434, 1, -786413, 786434, 1, -720877, 786434, 1, -983025, 983042, 0, -983024, 983042, 0, -983023, 983042, 0, -983022, 983042, 0, -983021, 983042, 0, -917485, 786434, 1, -786429, 524290, 2, -786428, 589826, 2, -786427, 655362, 2, -262141, 524290, 2, -262140, 589826, 2, -262139, 589826, 2, -262138, 655362, 2, -393208, 458754, 2, -524277, 458754, 2, -524276, 458754, 2, -196606, 458754, 2)
+
+[node name="Moving Platform" parent="TileMap" node_paths=PackedStringArray("trigger_interactable") instance=ExtResource("3_of2cm")]
+position = Vector2(257, -176)
+curve = SubResource("Curve2D_v74re")
+trigger_interactable = NodePath("../../Switch")
+
+[node name="Pickup" parent="TileMap" instance=ExtResource("4_3djko")]
+position = Vector2(71, -206)
