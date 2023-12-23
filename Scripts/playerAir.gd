@@ -16,7 +16,7 @@ func Update(delta: float):
 	pass
 
 func Physics_Update(delta: float):
-	print("airtime !!!!!!!!!!")
+	#print("airtime !!!!!!!!!!")
 	if player.is_on_floor():
 		Transitioned.emit(self, "playerGrounded")
 	else:
@@ -34,14 +34,14 @@ func Physics_Update(delta: float):
 		
 		# dash
 		if Input.is_action_just_pressed("ui_dash") and not is_dashing:
-			print("dashing !!!!!!!!!!!!!!!!!!")
+			#print("dashing !!!!!!!!!!!!!!!!!!")
 			is_dashing = true
 			player.dash_timer = player.dash_duration
 			# Reset velocity before dash
 			player.velocity.x = 0.0
 	
 		if is_dashing:
-			print("dashing...")
+			#print("dashing...")
 			# Gradually apply dash speed over dash duration
 			player.velocity.x = lerp(player.velocity.x, player.get_dash_direction() * player.dash_speed, delta / player.dash_duration)
 			player.dash_timer -= delta

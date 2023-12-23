@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cljhcrwsggwcb"]
+[gd_scene load_steps=9 format=3 uid="uid://cljhcrwsggwcb"]
 
 [ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="1_jepds"]
 [ext_resource type="Script" path="res://Anvil/Anvil.gd" id="1_rthpf"]
@@ -9,12 +9,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8pjg"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avpny"]
+size = Vector2(16, 1)
+
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mb0mr"]
 width = 10
 height = 10
 
 [node name="Anvil" type="CharacterBody2D"]
 disable_mode = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_rthpf")
 throw_height = 25.0
 throw_height_time_to_peak = 0.3
@@ -23,6 +28,14 @@ throw_drag = 4.0
 
 [node name="World_Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h8pjg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.55651e-07, -7.5)
+shape = SubResource("RectangleShape2D_avpny")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,7 +44,7 @@ texture = SubResource("NoiseTexture2D_mb0mr")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_jepds")
-initial_state = NodePath("AnvilAir")
+initial_state = NodePath("AnvilGrounded")
 
 [node name="AnvilGrounded" type="Node" parent="StateMachine" node_paths=PackedStringArray("anvil")]
 script = ExtResource("2_u0t35")
