@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dex540qym1ag6" path="res://Player/player.tscn" id="2_7vva7"]
 [ext_resource type="PackedScene" uid="uid://baxjxa64i0hvw" path="res://World-Generator/World_Generator.tscn" id="2_ph6he"]
 [ext_resource type="PackedScene" uid="uid://cljhcrwsggwcb" path="res://Anvil/Anvil.tscn" id="3_7cyl8"]
-[ext_resource type="PackedScene" uid="uid://ccf15ws0a8e0r" path="res://fox.tscn" id="5_ek6hq"]
+[ext_resource type="PackedScene" path="res://fox.tscn" id="5_ek6hq"]
 
 [node name="World" type="Node2D"]
 position = Vector2(32, 112)
