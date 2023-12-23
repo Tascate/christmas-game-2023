@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dex540qym1ag6"]
+[gd_scene load_steps=11 format=3 uid="uid://dex540qym1ag6"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_12pg1"]
 [ext_resource type="Texture2D" uid="uid://b1qrbr4x0vkto" path="res://tilemap-characters_packed.png" id="1_vd07v"]
@@ -10,6 +10,14 @@
 atlas = ExtResource("1_vd07v")
 region = Rect2(0, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ev7k"]
+atlas = ExtResource("1_vd07v")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ep4s"]
+atlas = ExtResource("1_vd07v")
+region = Rect2(24, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_x2o5f"]
 animations = [{
 "frames": [{
@@ -18,6 +26,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ev7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ep4s")
+}],
+"loop": true,
+"name": &"Run",
 "speed": 5.0
 }]
 
@@ -35,7 +54,8 @@ dash_duration = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x2o5f")
-animation = &"Idle"
+animation = &"Run"
+frame_progress = 0.803121
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,9 +67,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 script = ExtResource("3_yaq5n")
 initial_state = NodePath("playerGrounded")
 
-[node name="playerGrounded" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="playerGrounded" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("4_o2n3f")
 player = NodePath("../..")
+anim = NodePath("../../AnimatedSprite2D")
 
 [node name="playerAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_j75k3")

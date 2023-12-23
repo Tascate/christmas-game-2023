@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccf15ws0a8e0r"]
+
+[ext_resource type="Texture2D" uid="uid://cxoittbjb8fx2" path="res://Fox Sprite Sheet.png" id="1_c8pla"]
+[ext_resource type="Script" path="res://fox.gd" id="1_fx0xo"]
+[ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="2_ytcmf"]
+[ext_resource type="Script" path="res://Scripts/foxIdle.gd" id="3_cv4tn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upvut"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_fx0xo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.8, 1.06667)
+texture = ExtResource("1_c8pla")
+region_enabled = true
+region_rect = Rect2(6, 17, 20, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_upvut")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_ytcmf")
+initial_state = NodePath("foxIdle")
+
+[node name="foxIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("npc")]
+script = ExtResource("3_cv4tn")
+npc = NodePath("../..")
